@@ -45,6 +45,11 @@ query favoriteQuestionList($favoriteSlug: String!) {
       translatedTitle
       titleSlug
       difficulty
+      topicTags {
+        name
+        slug
+        nameTranslated
+      }
     }
   }
 }
@@ -67,7 +72,12 @@ query favoriteQuestionList($favoriteSlug: String!) {
           "questionFrontendId": "160",
           "translatedTitle": "相交链表",
           "titleSlug": "intersection-of-two-linked-lists",
-          "difficulty": "EASY"
+          "difficulty": "EASY",
+          "topicTags": [
+            { "name": "Hash Table", "slug": "hash-table", "nameTranslated": "哈希表" },
+            { "name": "Linked List", "slug": "linked-list", "nameTranslated": "链表" },
+            { "name": "Two Pointers", "slug": "two-pointers", "nameTranslated": "双指针" }
+          ]
         }
       ]
     }
@@ -82,6 +92,14 @@ query favoriteQuestionList($favoriteSlug: String!) {
 | `EASY` | 简单 |
 | `MEDIUM` | 中等 |
 | `HARD` | 困难 |
+
+### 标签的用途
+
+`topicTags` 用于生成个性化计划时的**主题分组**：
+
+- 每道题按标签归入一个主专题
+- 分组规则和优先级见 `core/onboarding.md` 的「主题分组与排周」
+- 没有标签时，退化用题目标题和用户偏好分组
 
 ---
 
