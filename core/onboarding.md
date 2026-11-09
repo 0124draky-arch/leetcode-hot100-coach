@@ -285,12 +285,17 @@ learning-notes.md
 hot100-list.md
 ```
 
-如果平台支持文件写入，同时生成指针文件：
+如果平台支持文件写入，同时生成**平台原生文件**（完整规则，不是指针）：
 
-```
-CLAUDE.md    →  读取 COACH.md 并遵循
-AGENTS.md    →  读取 COACH.md 并遵循
-```
+| 平台 | 文件 |
+|------|------|
+| Claude Code | `CLAUDE.md` |
+| Codex | `AGENTS.md` |
+| Cursor | `.cursorrules` |
+| 通用聊天 | 不生成，直接使用 `COACH.md` |
+
+**原生文件内容 = 生成说明 + `COACH.md` 全文。**
+只生成当前平台的文件；用户明确说同时用多个平台时，才生成多份。
 
 如果平台不支持文件写入（纯聊天），把每个文件的内容用代码块输出，告诉用户保存为对应文件名。
 
@@ -302,6 +307,8 @@ AGENTS.md    →  读取 COACH.md 并遵循
   - 模式
   - 计划摘要
   - `core/coach.md` 的完整运行时规则
+- 平台原生文件必须包含 `COACH.md` 全文，不能只写“读取 COACH.md”的指针
+- 原生文件头部注明：`本文件由 COACH.md 生成，请优先修改 COACH.md`
 - `progress.md` 必须包含：
   - 当前阶段
   - 个性化计划表
@@ -353,6 +360,6 @@ AGENTS.md    →  读取 COACH.md 并遵循
 - [ ] `progress.md`
 - [ ] `learning-notes.md`
 - [ ] `hot100-list.md`
-- [ ] 平台指针文件（如果平台支持）
+- [ ] 平台原生文件（完整规则，如果平台支持）
 
 之后所有对话都**不需要再加载 skill**，直接读这些文件即可。

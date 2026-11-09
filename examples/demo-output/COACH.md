@@ -1,7 +1,7 @@
 # Demo 学习者 · Hot 100 教练
 
-> 本文件是运行时**唯一事实来源**。每次对话开始请读取：
-> `COACH.md` → `progress.md` → `learning-notes.md`
+> 本文件是运行时规则的**源文件**；平台原生文件（`CLAUDE.md` / `AGENTS.md` / `.cursorrules`）由本文件生成。
+> 每次对话开始请读取：`COACH.md`（或平台原生文件）→ `progress.md` → `learning-notes.md`
 
 ---
 

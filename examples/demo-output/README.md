@@ -33,7 +33,7 @@
 | `progress.md` | 个性化计划 + 进度 |
 | `learning-notes.md` | 三层知识笔记骨架 |
 | `hot100-list.md` | 本次使用的题单 |
-| `CLAUDE.md` / `AGENTS.md` | 平台指针，指向 `COACH.md` |
+| `CLAUDE.md` / `AGENTS.md` | 平台原生文件：`COACH.md` 全文（由 COACH.md 生成） |
 
 > 这是一个示例输出，不是让你直接拿去学习的模板。
 > 实际使用时，skill 会根据你的回答重新生成。

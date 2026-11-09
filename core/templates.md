@@ -1,6 +1,6 @@
 # 学习文档生成规则
 
-> 初始化时生成四个核心文档 + 平台指针文件。
+> 初始化时生成四个核心文档 + 平台原生文件。
 > 具体模板见 `assets/` 目录。
 
 ---
@@ -140,30 +140,59 @@ core/coach.md 的完整内容
 
 ---
 
-## 7. 平台指针文件
+## 7. 平台原生文件（完整规则）
 
-### CLAUDE.md（Claude Code）
+**原则：** `COACH.md` 是源文件；平台原生文件是它的**完整副本**，不是指针。
+
+### 为什么写完整规则
+
+- Claude Code 自动加载 `CLAUDE.md`
+- Codex 自动加载 `AGENTS.md`
+- Cursor 自动加载 `.cursorrules`
+- 如果原生文件只写“读 COACH.md”，模型可能不读，或者读不全
+- 所以原生文件直接放完整规则，保证开局就能看到
+
+### 生成方式
+
+原生文件内容 = 生成说明头部 + `COACH.md` 全文。
+
+**Claude Code — `CLAUDE.md`：**
 
 ```markdown
-# Hot 100 学习项目
+<!-- 本文件由 COACH.md 生成。请优先修改 COACH.md，然后重新生成本文件。 -->
 
-请读取并遵循本目录的 `COACH.md`。
-
-- 每次对话开始：读取 `COACH.md`、`progress.md`、`learning-notes.md`
-- 存档：更新 `progress.md` 和 `learning-notes.md`
-- 读档：按 `COACH.md` 的流程恢复
+# ... COACH.md 全文 ...
 ```
 
-### AGENTS.md（Codex / 通用 agent）
+**Codex — `AGENTS.md`：**
 
-内容同 `CLAUDE.md`。
+```markdown
+<!-- 本文件由 COACH.md 生成。请优先修改 COACH.md，然后重新生成本文件。 -->
 
-### .cursorrules（Cursor）
+# ... COACH.md 全文 ...
+```
 
-内容同 `CLAUDE.md`。
+**Cursor — `.cursorrules`：**
 
-> 指针文件只做一件事：让平台自动加载，然后转去读 `COACH.md`。
-> 不要把完整规则复制到多个文件，避免漂移。
+```markdown
+# 本文件由 COACH.md 生成。请优先修改 COACH.md，然后重新生成本文件。
+
+# ... COACH.md 全文 ...
+```
+
+### 只生成当前平台的文件
+
+- 用 Claude Code → 生成 `CLAUDE.md`
+- 用 Codex → 生成 `AGENTS.md`
+- 用 Cursor → 生成 `.cursorrules`
+- 用通用聊天模型 → 不生成原生文件，直接使用 `COACH.md`
+- 如果用户明确说同时用多个平台，才生成多份
+
+### 同步规则
+
+- 修改 `COACH.md`（模式、难度、计划、学生信息）后，**重新生成对应的原生文件**
+- 不要手动修改原生文件，否则会和 `COACH.md` 漂移
+- 详见 `core/update.md` 的「同步原生文件」
 
 ---
 
@@ -174,7 +203,7 @@ core/coach.md 的完整内容
 - [ ] `progress.md` 的计划和用户确认的一致
 - [ ] `learning-notes.md` 三层结构齐全
 - [ ] `hot100-list.md` 有来源、日期、难度分布、完整表格
-- [ ] 指针文件指向 `COACH.md`
+- [ ] 平台原生文件包含 `COACH.md` 全文和生成说明（不是指针）
 - [ ] 文件名和大小写正确
 
 ---
@@ -203,12 +232,15 @@ core/coach.md 的完整内容
 
 ```
 <学习目录>/
-├── COACH.md
+├── COACH.md              # 源文件
 ├── progress.md
 ├── learning-notes.md
 ├── hot100-list.md
-├── CLAUDE.md
-└── AGENTS.md
+├── CLAUDE.md             # Claude Code：COACH.md 全文
+├── AGENTS.md             # Codex：COACH.md 全文
+└── .cursorrules          # Cursor：COACH.md 全文
 ```
+
+按当前平台只生成对应的原生文件，不要无关地全生成。
 
 如果用户想放到子目录（例如 `hot100/`），按用户指定的位置生成，并在 `COACH.md` 中记录路径。

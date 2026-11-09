@@ -105,18 +105,20 @@ cp ~/tools/leetcode-hot100-coach/adapters/cursor/.cursorrules ./
 在你的学习目录中生成：
 
 ```
-COACH.md            # 完整运行时规则 + 学生信息（唯一事实来源）
+COACH.md            # 完整运行时规则 + 学生信息（源文件）
 progress.md         # 个性化计划 + 当前进度 + 已完成题目
 learning-notes.md   # 三层知识笔记
 hot100-list.md      # 本次使用的题单快照（带日期）
 
-CLAUDE.md           # 指针：读取 COACH.md 并遵循
-AGENTS.md           # 指针：读取 COACH.md 并遵循
+CLAUDE.md           # Claude Code：COACH.md 全文（自动加载）
+AGENTS.md           # Codex：COACH.md 全文（自动加载）
+.cursorrules        # Cursor：COACH.md 全文（自动加载）
 ```
 
-- `COACH.md` 是唯一事实来源，后续教学只看它
-- `CLAUDE.md` / `AGENTS.md` 只做指针，避免多份规则漂移
-- 纯聊天模型不用生成指针文件，直接使用 `COACH.md`
+- `COACH.md` 是**源文件**，唯一事实来源
+- 平台原生文件是 `COACH.md` 的**完整副本**，不是指针；只生成当前平台的
+- 修改 `COACH.md` 后，重新生成对应的原生文件，避免漂移
+- 纯聊天模型不用生成原生文件，直接使用 `COACH.md`
 
 ---
 
@@ -171,7 +173,7 @@ leetcode-hot100-coach/
 
 ## 设计原则
 
-1. **一份核心规则，多个平台适配**：`core/` 是唯一事实来源
+1. **一份核心规则，多个平台适配**：`core/` 是唯一事实来源；初始化时把完整规则写入平台原生文件
 2. **初始化只跑一次**：之后由用户目录里的 `COACH.md` 驱动
 3. **不写死工具名**：用「读取文件 / 写入文件 / 如果支持 git」这类平台无关表述
 4. **能力降级**：没有文件读写 → 聊天模式；没有网络 → 快照；没有 git → 跳过提交
