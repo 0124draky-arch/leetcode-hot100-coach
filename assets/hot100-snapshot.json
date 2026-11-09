@@ -48,7 +48,7 @@
       "title": "寻找两个正序数组的中位数",
       "difficulty": "困难",
       "slug": "median-of-two-sorted-arrays",
-      "category": "数组与其他",
+      "category": "进阶技巧",
       "tags": [
         "array",
         "binary-search",
@@ -109,7 +109,7 @@
       "title": "电话号码的字母组合",
       "difficulty": "中等",
       "slug": "letter-combinations-of-a-phone-number",
-      "category": "哈希表",
+      "category": "进阶技巧",
       "tags": [
         "hash-table",
         "string",
@@ -206,7 +206,7 @@
       "title": "搜索旋转排序数组",
       "difficulty": "中等",
       "slug": "search-in-rotated-sorted-array",
-      "category": "数组与其他",
+      "category": "进阶技巧",
       "tags": [
         "array",
         "binary-search"
@@ -217,7 +217,7 @@
       "title": "在排序数组中查找元素的第一个和最后一个位置",
       "difficulty": "中等",
       "slug": "find-first-and-last-position-of-element-in-sorted-array",
-      "category": "数组与其他",
+      "category": "进阶技巧",
       "tags": [
         "array",
         "binary-search"
@@ -228,7 +228,7 @@
       "title": "组合总和",
       "difficulty": "中等",
       "slug": "combination-sum",
-      "category": "数组与其他",
+      "category": "进阶技巧",
       "tags": [
         "array",
         "backtracking"
@@ -253,7 +253,7 @@
       "title": "全排列",
       "difficulty": "中等",
       "slug": "permutations",
-      "category": "数组与其他",
+      "category": "进阶技巧",
       "tags": [
         "array",
         "backtracking"
@@ -264,7 +264,7 @@
       "title": "旋转图像",
       "difficulty": "中等",
       "slug": "rotate-image",
-      "category": "数组与其他",
+      "category": "数组基础",
       "tags": [
         "array",
         "math",
@@ -313,7 +313,7 @@
       "title": "合并区间",
       "difficulty": "中等",
       "slug": "merge-intervals",
-      "category": "数组与其他",
+      "category": "数组基础",
       "tags": [
         "array",
         "sorting",
@@ -398,7 +398,7 @@
       "title": "子集",
       "difficulty": "中等",
       "slug": "subsets",
-      "category": "数组与其他",
+      "category": "进阶技巧",
       "tags": [
         "bit-manipulation",
         "array",
@@ -410,7 +410,7 @@
       "title": "单词搜索",
       "difficulty": "中等",
       "slug": "word-search",
-      "category": "数组与其他",
+      "category": "进阶技巧",
       "tags": [
         "depth-first-search",
         "array",
@@ -594,7 +594,7 @@
       "title": "只出现一次的数字",
       "difficulty": "简单",
       "slug": "single-number",
-      "category": "数组与其他",
+      "category": "数组基础",
       "tags": [
         "bit-manipulation",
         "array"
@@ -786,7 +786,7 @@
       "title": "数组中的第K个最大元素",
       "difficulty": "中等",
       "slug": "kth-largest-element-in-an-array",
-      "category": "数组与其他",
+      "category": "进阶技巧",
       "tags": [
         "array",
         "divide-and-conquer",
@@ -852,7 +852,7 @@
       "title": "除了自身以外数组的乘积",
       "difficulty": "中等",
       "slug": "product-of-array-except-self",
-      "category": "数组与其他",
+      "category": "数组基础",
       "tags": [
         "array",
         "prefix-sum"
@@ -878,7 +878,7 @@
       "title": "搜索二维矩阵 II",
       "difficulty": "中等",
       "slug": "search-a-2d-matrix-ii",
-      "category": "数组与其他",
+      "category": "进阶技巧",
       "tags": [
         "array",
         "binary-search",
@@ -974,7 +974,7 @@
       "title": "删除无效的括号",
       "difficulty": "困难",
       "slug": "remove-invalid-parentheses",
-      "category": "数组与其他",
+      "category": "进阶技巧",
       "tags": [
         "breadth-first-search",
         "string",
@@ -1047,7 +1047,7 @@
       "title": "前 K 个高频元素",
       "difficulty": "中等",
       "slug": "top-k-frequent-elements",
-      "category": "哈希表",
+      "category": "进阶技巧",
       "tags": [
         "array",
         "hash-table",
@@ -1094,7 +1094,7 @@
       "title": "根据身高重建队列",
       "difficulty": "中等",
       "slug": "queue-reconstruction-by-height",
-      "category": "数组与其他",
+      "category": "数组基础",
       "tags": [
         "binary-indexed-tree",
         "segment-tree",
@@ -1155,7 +1155,7 @@
       "title": "汉明距离",
       "difficulty": "简单",
       "slug": "hamming-distance",
-      "category": "数组与其他",
+      "category": "数组基础",
       "tags": [
         "bit-manipulation"
       ]
@@ -1245,7 +1245,7 @@
       "title": "任务调度器",
       "difficulty": "中等",
       "slug": "task-scheduler",
-      "category": "哈希表",
+      "category": "进阶技巧",
       "tags": [
         "greedy",
         "array",

@@ -163,7 +163,8 @@ leetcode-hot100-coach/
 └── examples/
     ├── walkthrough-206.md      # 206 反转链表完整带做示例
     ├── 8-week-plan.md          # 8 周节奏参考样例（不是默认值）
-    └── demo-output/            # 一次完整初始化试跑的输出
+    ├── demo-output/            # 有基础学习者的初始化试跑
+    └── demo-output-beginner/   # 零基础学习者的初始化试跑
 ```
 
 ---
