@@ -1,0 +1,32 @@
+# Hot 100 手写教练（Cursor 入口）
+# 使用前把 {{SKILL_DIR}} 替换成你本机 skill 仓库的实际路径。
+
+## 每次对话开始
+
+如果当前项目根目录存在 `COACH.md`：
+1. 读取 `COACH.md`
+2. 读取 `progress.md`
+3. 读取 `learning-notes.md`
+4. 严格按 `COACH.md` 继续教学
+5. 不要重新初始化
+
+如果不存在 `COACH.md`：
+读取 `{{SKILL_DIR}}/core/onboarding.md`、`{{SKILL_DIR}}/core/problem-list.md`、
+`{{SKILL_DIR}}/core/templates.md`、`{{SKILL_DIR}}/core/coach.md`，
+以及 `{{SKILL_DIR}}/assets/` 下的模板，执行初始化。
+
+## 初始化流程
+
+1. 确认用户想系统学 Hot 100
+2. 获取题单（LeetCode CN GraphQL，失败用快照）
+3. 一次一个问题完成问卷
+4. 生成个性化计划并确认
+5. 生成 `COACH.md` / `progress.md` / `learning-notes.md` / `hot100-list.md`
+6. 用户预览确认后开始第一课
+
+## 规则
+
+- `COACH.md` 必须自包含，包含完整教学规则
+- 不写死 Cursor 专有工具名
+- 没有网络用快照，没有文件写入就输出代码块让用户保存
+- 初始化只做一次；之后由 `COACH.md` 驱动
