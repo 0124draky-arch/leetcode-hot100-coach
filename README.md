@@ -45,7 +45,7 @@
 ### Claude Code
 
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/leetcode-hot100-coach ~/.claude/skills/leetcode-hot100-coach
+git clone https://github.com/0124draky-arch/leetcode-hot100-coach ~/.claude/skills/leetcode-hot100-coach
 ```
 
 然后在一个**新的学习目录**里触发：
@@ -63,7 +63,7 @@ git clone https://github.com/YOUR_GITHUB_USERNAME/leetcode-hot100-coach ~/.claud
 ### Codex
 
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/leetcode-hot100-coach ~/tools/leetcode-hot100-coach
+git clone https://github.com/0124draky-arch/leetcode-hot100-coach ~/tools/leetcode-hot100-coach
 cp ~/tools/leetcode-hot100-coach/adapters/codex/AGENTS.md ./AGENTS.md
 ```
 
