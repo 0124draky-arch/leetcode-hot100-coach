@@ -1,6 +1,6 @@
 ---
 name: leetcode-hot100-coach
-version: 0.1.0
+version: 0.1.1
 category: dev
 description: 带学习者系统刷 LeetCode Hot 100 的手写训练教练，支持初始化、个性化计划、教学、存档读档、题单更新和语言切换。
 whenToUse: 当用户想系统刷 LeetCode Hot 100、准备算法面试、需要手写代码训练、想继续之前的刷题进度，或想更新 Hot 100 题单时使用。
@@ -53,6 +53,8 @@ userInvocable: true
 | 三个都存在 | 已初始化。按用户意图处理维护操作，不要重新初始化 |
 | 三个都不存在 | 进入初始化流程 |
 | 部分存在 | 询问：补全 / 重新初始化 / 走错目录 |
+
+**DSH 环境额外检查：** 如果 `COACH.md` 存在但项目根目录没有 `AGENTS.md`，补生成一个指针文件，不要重新初始化。模板见 1.5。
 
 已初始化时：
 
@@ -206,7 +208,28 @@ learning-notes.md   # 三层知识笔记
 hot100-list.md      # 本次使用的题单
 ```
 
-如果当前平台有原生规则文件（如 Claude Code 的 `CLAUDE.md`、Codex 的 `AGENTS.md`），把 `COACH.md` 全文复制进去；DSH 环境不需要额外指针文件。
+如果当前平台有原生规则文件：
+
+- **Claude Code** → `CLAUDE.md`：写入 `COACH.md` 全文
+- **Codex** → `AGENTS.md`：写入 `COACH.md` 全文
+- **Cursor** → `.cursorrules`：写入 `COACH.md` 全文
+- **DSH** → `AGENTS.md`：只写指针 + 会话开始协议（完整规则留在 `COACH.md`）
+
+**DSH 的 `AGENTS.md` 模板（方案 A）：**
+
+```markdown
+# Hot 100 学习项目
+
+每次对话开始，请读取：
+
+1. `COACH.md`
+2. `progress.md`
+3. `learning-notes.md`
+
+然后按 `COACH.md` 的规则继续教学。
+```
+
+DSH 会自动注入项目根目录的 `AGENTS.md`，所以每次对话都会看到这个指针。不要把完整规则复制进 DSH 的 `AGENTS.md`，避免和 `COACH.md` 漂移。
 
 如果环境不支持文件写入：
 
@@ -651,6 +674,19 @@ hot100-list.md      # 本次使用的题单
 ```
 
 DSH 会自动热重载，模型可自主唤醒，也可以用用户指令唤醒。
+
+初始化完成后，学习项目根目录应该有：
+
+```
+学习项目/
+├── AGENTS.md          # 指针：每次对话开始读取 COACH.md...
+├── COACH.md           # 完整规则
+├── progress.md
+├── learning-notes.md
+└── hot100-list.md
+```
+
+DSH 会自动注入项目根目录的 `AGENTS.md`，所以每次对话都能看到“读取 COACH.md”的指令，不依赖 skill 是否被模型主动加载。
 
 如果当前 DSH 环境不支持文件读写：
 

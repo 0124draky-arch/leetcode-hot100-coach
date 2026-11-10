@@ -92,6 +92,8 @@ cp ~/tools/leetcode-hot100-coach/adapters/dsh/SKILL.md .dsh/skills/leetcode-hot1
 
 DSH 会自动热重载，模型可自主唤醒，也可以用用户指令唤醒。
 
+> 初始化完成后，DSH 会使用项目根目录的 `AGENTS.md` 作为常驻指针：每次对话开始读取 `COACH.md`、`progress.md`、`learning-notes.md`。完整规则保留在 `COACH.md`，避免两份规则漂移。DSH 会自动注入这个 `AGENTS.md`，不需要手动加载。
+
 也可以上传到 DeepSeek HUB 的 Skill 市场：
 
 1. 登录 https://deepseek.stream
@@ -197,13 +199,14 @@ learning-notes.md   # 三层知识笔记
 hot100-list.md      # 本次使用的题单快照（带日期）
 
 CLAUDE.md           # Claude Code：COACH.md 全文（自动加载）
-AGENTS.md           # Codex：COACH.md 全文（自动加载）
+AGENTS.md           # Codex：COACH.md 全文；DSH：指针（自动注入）
 .cursorrules        # Cursor：COACH.md 全文（自动加载）
 ```
 
 - `COACH.md` 是**源文件**，唯一事实来源
-- 平台原生文件是 `COACH.md` 的**完整副本**，不是指针；只生成当前平台的
-- 修改 `COACH.md` 后，重新生成对应的原生文件，避免漂移
+- Claude Code / Codex / Cursor 的原生文件是 `COACH.md` 的**完整副本**
+- DSH 的 `AGENTS.md` 只写**会话开始指针**：读取 `COACH.md`、`progress.md`、`learning-notes.md`；完整规则留在 `COACH.md`，避免两份规则漂移
+- 修改 `COACH.md` 后，重新生成对应的原生文件
 - 纯聊天模型不用生成原生文件，直接使用 `COACH.md`
 
 ---
