@@ -59,6 +59,7 @@ description: 初始化一个 LeetCode Hot 100 手写训练项目。当用户想�
 - `assets/hot100-snapshot.md`（题单兜底）
 
 > 路径相对于本 SKILL.md 所在目录。Claude Code 中通常是 `~/.claude/skills/leetcode-hot100-coach/`。
+> 如果不确定路径，先问用户，或根据当前加载的 skill 路径推导。
 
 ---
 

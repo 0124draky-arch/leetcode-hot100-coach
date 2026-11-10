@@ -34,7 +34,7 @@
 
 | 平台 | 入口文件 | 放置位置 |
 |------|----------|----------|
-| Claude Code | `adapters/claude-code/SKILL.md` | `~/.claude/skills/leetcode-hot100-coach/` |
+| Claude Code | `SKILL.md`（仓库根目录） | `~/.claude/skills/leetcode-hot100-coach/` |
 | Codex | `adapters/codex/AGENTS.md` | 学习项目根目录 |
 | Cursor | `adapters/cursor/.cursorrules` | 学习项目根目录 |
 | 通用聊天模型 | `adapters/generic/PROMPT.md` | 粘贴到对话或自定义指令 |
@@ -48,6 +48,8 @@
 ```bash
 git clone https://github.com/0124draky-arch/leetcode-hot100-coach ~/.claude/skills/leetcode-hot100-coach
 ```
+
+> 克隆后仓库根目录就是 skill 目录，Claude Code 会自动读取根目录的 `SKILL.md`。
 
 然后在一个**新的学习目录**里触发：
 
@@ -142,6 +144,7 @@ AGENTS.md           # Codex：COACH.md 全文（自动加载）
 
 ```
 leetcode-hot100-coach/
+├── SKILL.md                    # Claude Code 入口（根目录）
 ├── README.md
 ├── LICENSE
 ├── core/                       # 平台无关的核心规则
@@ -151,8 +154,7 @@ leetcode-hot100-coach/
 │   ├── templates.md            # 生成文档的模板
 │   ├── teaching.md             # 教学流程详解
 │   └── update.md               # 更新题单 / 调整计划 / 切换模式
-├── adapters/                   # 各平台薄适配层
-│   ├── claude-code/SKILL.md
+├── adapters/                   # 其他平台薄适配层
 │   ├── codex/AGENTS.md
 │   ├── cursor/.cursorrules
 │   └── generic/PROMPT.md
