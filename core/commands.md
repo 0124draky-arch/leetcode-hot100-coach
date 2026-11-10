@@ -75,6 +75,7 @@
 | Claude Code | 根目录 `SKILL.md` | `/leetcode-hot100-coach` 或自然语言 |
 | Codex | `adapters/codex/AGENTS.md` | 复制到项目根目录，自然语言 |
 | Cursor | `adapters/cursor/.cursorrules` | 复制到项目根目录，自然语言 |
+| DSH（DeepSeek Harness） | `adapters/dsh/SKILL.md` | `.dsh/skills/leetcode-hot100-coach/SKILL.md` |
 | 通用聊天 | `adapters/generic/PROMPT.md` | 粘贴到对话或自定义指令 |
 
 ---

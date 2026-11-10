@@ -18,7 +18,7 @@
 
 ## 特点
 
-- **平台无关**：Claude Code / Codex / Cursor / DeepSeek / ChatGPT / Claude.ai 都能用
+- **平台无关**：Claude Code / Codex / Cursor / DSH / DeepSeek / ChatGPT / Claude.ai 都能用
 - **语言无关**：JavaScript / Python / Java / C++ / Go 等，代码和笔记按你选的语言生成
 - **只初始化一次**：生成学习文档后，后续由 `COACH.md` 驱动，不再加载 skill
 - **题单实时获取**：优先从 LeetCode CN 抓取，失败用内置快照兜底
@@ -37,6 +37,7 @@
 | Claude Code | `SKILL.md`（仓库根目录） | `~/.claude/skills/leetcode-hot100-coach/` |
 | Codex | `adapters/codex/AGENTS.md` | 学习项目根目录 |
 | Cursor | `adapters/cursor/.cursorrules` | 学习项目根目录 |
+| DSH（DeepSeek Harness） | `adapters/dsh/SKILL.md` | `.dsh/skills/leetcode-hot100-coach/SKILL.md` |
 | 通用聊天模型 | `adapters/generic/PROMPT.md` | 粘贴到对话或自定义指令 |
 
 ---
@@ -79,6 +80,27 @@ cp ~/tools/leetcode-hot100-coach/adapters/cursor/.cursorrules ./
 ```
 
 同样把 `{{SKILL_DIR}}` 替换成实际路径。
+
+### DSH（DeepSeek Harness）
+
+DSH 使用**原生 Skill**，不需要编译。把 `adapters/dsh/SKILL.md` 复制到：
+
+```bash
+mkdir -p .dsh/skills/leetcode-hot100-coach
+cp ~/tools/leetcode-hot100-coach/adapters/dsh/SKILL.md .dsh/skills/leetcode-hot100-coach/SKILL.md
+```
+
+DSH 会自动热重载，模型可自主唤醒，也可以用用户指令唤醒。
+
+也可以上传到 DeepSeek HUB 的 Skill 市场：
+
+1. 登录 https://deepseek.stream
+2. 进入「发布插件 / skill」
+3. 上传 `adapters/dsh/SKILL.md`（或包含它的单层 ZIP）
+4. 分类建议选 `dev` 或 `tools`
+5. 提交审核
+
+> DSH 的 Plugin 市场用于 Node.js 代码插件；本项目是纯 Markdown Skill，走 Skill 市场即可。
 
 ### 通用聊天模型（DeepSeek / ChatGPT / Claude.ai）
 
@@ -219,6 +241,7 @@ leetcode-hot100-coach/
 ├── adapters/                   # 其他平台薄适配层
 │   ├── codex/AGENTS.md
 │   ├── cursor/.cursorrules
+│   ├── dsh/SKILL.md            # DSH 原生 Skill（自包含）
 │   └── generic/PROMPT.md
 ├── assets/
 │   ├── hot100-snapshot.md      # 题单快照（兜底，Markdown）
@@ -289,6 +312,6 @@ MIT
 
 It initializes a learning project once, generating `COACH.md`, `progress.md`, `learning-notes.md`, and a dated problem-list snapshot. After that, every session is driven by those files — no need to reload the skill.
 
-Works with Claude Code, Codex, Cursor, and any chat model that can follow Markdown instructions. It is language-agnostic: JavaScript, Python, Java, C++, Go, and others are supported by adapting the code templates and notes to the learner's language. The problem list is fetched from LeetCode CN at initialization, with a bundled snapshot as fallback.
+Works with Claude Code, Codex, Cursor, DSH (DeepSeek Harness), and any chat model that can follow Markdown instructions. It is language-agnostic: JavaScript, Python, Java, C++, Go, and others are supported by adapting the code templates and notes to the learner's language. The problem list is fetched from LeetCode CN at initialization, with a bundled snapshot as fallback.
 
 Key ideas: interactive teaching, tiered hints, handwriting practice, personalized schedule, archive/restore across sessions, and optional git auto-commit.
