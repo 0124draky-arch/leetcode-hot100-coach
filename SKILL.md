@@ -41,6 +41,8 @@ description: 初始化一个 LeetCode Hot 100 手写训练项目，并支持后�
 
 如果当前环境无法访问 skill 目录里的 `core/` 文件，按用户目录 `COACH.md` 的「13. 常用指令」和「10.1 / 10.2」处理。
 
+> 用户可以在每道题新开会话，只要说“读档”即可。状态都在 `COACH.md`、`progress.md`、`learning-notes.md` 里，不依赖对话历史。
+
 ### 全部不存在
 
 进入初始化流程。
