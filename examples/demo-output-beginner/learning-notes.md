@@ -1,6 +1,8 @@
 # Hot 100 知识笔记
 
 > 最后更新：2026-11-09
+>
+> **语言说明：** 本模板中的代码示例以 JavaScript 为例；初始化时按学习者选择的语言替换。
 
 ---
 
@@ -255,6 +257,10 @@ return dp[n];
 ## 第二部分：JavaScript 基础
 
 > 遇到再补，不追求系统完备。
+> 以下以 JavaScript 为例；初始化时按学习者选择的语言替换。
+> 对照：哈希表（JS `Map` / Python `dict` / Java `HashMap` / C++ `unordered_map` / Go `map`），
+> 集合（JS `Set` / Python `set` / Java `HashSet` / C++ `unordered_set` / Go `map[T]struct{}`），
+> 动态数组（JS `Array` / Python `list` / Java `ArrayList` / C++ `vector` / Go `slice`）。
 
 ### Map
 

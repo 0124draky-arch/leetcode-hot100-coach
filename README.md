@@ -19,13 +19,14 @@
 ## 特点
 
 - **平台无关**：Claude Code / Codex / Cursor / DeepSeek / ChatGPT / Claude.ai 都能用
+- **语言无关**：JavaScript / Python / Java / C++ / Go 等，代码和笔记按你选的语言生成
 - **只初始化一次**：生成学习文档后，后续由 `COACH.md` 驱动，不再加载 skill
 - **题单实时获取**：优先从 LeetCode CN 抓取，失败用内置快照兜底
 - **计划个性化**：根据基础、每天时间、目标日期生成，不套固定 8 周
 - **两种模式**：手写模式（默认）/ 只讲思路模式
 - **存档 / 读档**：跨对话恢复进度
 - **自动 git commit**：检测到 git 仓库时，存档自动提交
-- **三层知识笔记**：核心模板 / JavaScript 基础 / 题目详解
+- **三层知识笔记**：核心模板 / 语言基础 / 题目详解
 
 ---
 
@@ -203,6 +204,6 @@ MIT
 
 It initializes a learning project once, generating `COACH.md`, `progress.md`, `learning-notes.md`, and a dated problem-list snapshot. After that, every session is driven by those files — no need to reload the skill.
 
-Works with Claude Code, Codex, Cursor, and any chat model that can follow Markdown instructions. The problem list is fetched from LeetCode CN at initialization, with a bundled snapshot as fallback.
+Works with Claude Code, Codex, Cursor, and any chat model that can follow Markdown instructions. It is language-agnostic: JavaScript, Python, Java, C++, Go, and others are supported by adapting the code templates and notes to the learner's language. The problem list is fetched from LeetCode CN at initialization, with a bundled snapshot as fallback.
 
 Key ideas: interactive teaching, tiered hints, handwriting practice, personalized schedule, archive/restore across sessions, and optional git auto-commit.

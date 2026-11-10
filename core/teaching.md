@@ -2,6 +2,9 @@
 
 > `core/coach.md` 是规则速查，本文件是详细操作手册。
 > 两者冲突时，以 `core/coach.md` 为准。
+>
+> **语言说明：** 本文示例代码用 JavaScript；实际教学时按学习者选择的语言改写
+> （Python / Java / C++ / Go 等）。不要假设学习者用 JavaScript。
 
 ---
 
@@ -148,7 +151,7 @@ var twoSum = function(nums, target) {
 - [ ] 是否修改输入
 - [ ] 返回值
 - [ ] 复杂度
-- [ ] JavaScript 语法
+- [ ] 所用语言的语法
 
 ---
 

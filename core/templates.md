@@ -102,9 +102,9 @@ core/coach.md 的完整内容
   - 按模式分类（哈希、双指针、滑动窗口、链表、栈、树、图、DP）
   - 每个模板：适用场景、核心思路、代码模板、复杂度
 
-第二部分：JavaScript 基础
+第二部分：{{语言}} 基础
   - 遇到再补，不追求系统完备
-  - Map / Set / Array / String / 循环 / 函数
+  - 按学习者选择的语言生成
 
 第三部分：题目详解
   - 题号、标题、难度、完成日期
@@ -114,6 +114,24 @@ core/coach.md 的完整内容
   - 易错点
   - 学习心得
 ```
+
+### 语言适配
+
+初始化问卷会记录学习者使用的语言。生成 `learning-notes.md` 时：
+
+- **不要默认用 JavaScript**；按学习者选择的语言生成代码模板和语法说明
+- 如果学习者用 Python / Java / C++ / Go，把 `assets/notes-template.md` 里的 JS 示例替换成对应语言
+- 常见数据结构对照：
+
+| 用途 | JavaScript | Python | Java | C++ | Go |
+|------|------------|--------|------|-----|-----|
+| 哈希表 | `Map` | `dict` | `HashMap` | `unordered_map` | `map` |
+| 集合 | `Set` | `set` | `HashSet` | `unordered_set` | `map[T]struct{}` |
+| 动态数组 | `Array` | `list` | `ArrayList` | `vector` | `slice` |
+| 字符串 | `string` | `str` | `String` | `std::string` | `string` |
+| 栈 | 数组 + `push/pop` | `list` + `append/pop` | `Deque` | `stack` | `slice` |
+
+- 如果学习者不确定用哪种语言，默认用 JavaScript，但要明确告诉他“可以随时换语言，我会改写代码和笔记”
 
 **掌握标记：**
 
