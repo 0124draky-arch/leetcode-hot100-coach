@@ -184,6 +184,27 @@ leetcode-hot100-coach/
 
 ---
 
+## 常见问题
+
+### 更新题单时提示网络被拦截？
+
+Claude Code 的沙箱或权限设置可能禁止联网。skill 会自动切换到手动模式：
+
+1. 打开 https://leetcode.cn/problem-list/2cktkvj/
+2. 复制题单内容，或整理成题号列表
+3. 粘贴给 AI，说“用这个更新题单”
+
+不需要反复重试网络请求，手动提供题单同样可以更新。
+
+### `/leetcode-hot100-coach` 没有反应？
+
+- 确认 `~/.claude/skills/leetcode-hot100-coach/SKILL.md` 存在
+- 确认 `SKILL.md` 开头的 frontmatter 有 `name: leetcode-hot100-coach`
+- 重启 Claude Code 或新开一个会话
+- 确认当前目录不是 skill 目录本身
+
+---
+
 ## Roadmap
 
 - [ ] 补一份英文完整 README
