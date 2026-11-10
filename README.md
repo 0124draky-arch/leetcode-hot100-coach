@@ -344,3 +344,24 @@ It initializes a learning project once, generating `COACH.md`, `progress.md`, `l
 Works with Claude Code, Codex, Cursor, DSH (DeepSeek Harness), and any chat model that can follow Markdown instructions. It is language-agnostic: JavaScript, Python, Java, C++, Go, and others are supported by adapting the code templates and notes to the learner's language. The problem list is fetched from LeetCode CN at initialization, with a bundled snapshot as fallback.
 
 Key ideas: interactive teaching, tiered hints, handwriting practice, personalized schedule, archive/restore across sessions, and optional git auto-commit.
+
+---
+
+<details>
+<summary>彩蛋：为什么做这个？</summary>
+
+写下这一行的时候，我也在思考。
+
+也许当时真的是太迷茫了吧。我是个很容易焦虑的人，也有点完美主义倾向，总希望能找到最高效的方式、最高效的方法。可是问题就在这里，当你去寻找最高效的方法时，很多时候你已经错失在稳定前进的路上。
+
+虽然我现在再也不用准备 LeetCode 刷题了，随着 AI 发展，以后各公司对这方面的要求肯定也会降低。但是当时的焦虑是真的：从哪里开始？需要哪些基础？刷题顺序是什么？看视频？看文章？讲解的语言和我不一致？网上铺天盖地的资料、攻略、文章、传播的焦虑，只会让我越来越过载……
+
+很多时候困住人的并不是“能力”的问题，而是“方向、选择”的问题。这也是这个项目的初衷。
+
+或许这个项目没有人看，也没有人用。
+
+但或许也能帮到一些人呢。如果能为某个焦虑的灵魂指引到一些方向，我想，这个项目的目的也就达到了。
+
+—— Draky，写于 2026/11/10 19:18，CQUPT
+
+</details>
