@@ -122,6 +122,15 @@ query favoriteQuestionList($favoriteSlug: String!) {
 
 ## 5. 获取失败时
 
+### 网络被拦截 / 无权限
+
+如果请求被权限系统拦截、沙箱禁止联网、或返回网络错误：
+
+- **不要反复重试**
+- 不要编造题单
+- 直接进入手动模式：请用户粘贴题单或题号列表
+- 以用户提供的列表为准
+
 ### 有快照
 
 使用 `assets/hot100-snapshot.md`，并告诉用户：
@@ -144,6 +153,7 @@ query favoriteQuestionList($favoriteSlug: String!) {
 用户说“更新题单”时：
 
 1. 重新获取最新题单
+   - 如果网络被拦截，不要重试，直接请用户粘贴题单或题号列表
 2. 和当前 `hot100-list.md` 对比
 3. 显示差异：
    - 新增题目

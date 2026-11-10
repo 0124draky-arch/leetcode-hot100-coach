@@ -213,6 +213,44 @@
 | `hot100-list.md` | 初始化 / 更新题单 | 题号、标题、难度、来源日期 |
 | `COACH.md` | 切换模式 / 调整计划 | 模式、计划摘要、学生信息 |
 
+### 10.1 更新题单
+
+用户说“更新题单 / 题单变了 / 检查最新题单”时：
+
+1. 读取当前 `hot100-list.md`
+2. 尝试获取最新 Hot 100 题单：
+   - 如果网络可用，调用 LeetCode CN GraphQL
+   - 如果网络被拦截、工具不可用，**不要反复重试**，直接进入手动模式
+3. 手动模式：
+   - 告诉用户：“当前环境无法访问 LeetCode。你可以把题单页面复制给我，或提供题号列表，我以你的为准。”
+   - 用户提供后，整理成表格
+4. 对比新旧题单，显示新增 / 移除 / 难度变化
+5. 询问用户是否更新
+6. 确认后更新：
+   - `hot100-list.md`
+   - `progress.md` 的计划
+   - 已完成题目保留
+7. 如果目录是 git 仓库，自动 commit
+
+**获取最新题单（网络可用时）：**
+
+```
+POST https://leetcode.cn/graphql/
+Content-Type: application/json
+Referer: https://leetcode.cn/problem-list/2cktkvj/
+
+{"query":"query favoriteQuestionList($favoriteSlug: String!){favoriteQuestionList(favoriteSlug:$favoriteSlug){questions{questionFrontendId translatedTitle titleSlug difficulty}}}","variables":{"favoriteSlug":"2cktkvj"}}
+```
+
+> 如果接口返回错误、被权限拦截、或环境不允许联网：
+> 直接进入手动模式，不要反复尝试，也不要编造题单。
+
+### 10.2 调整计划 / 切换模式
+
+- 根据用户要求调整 `progress.md` 的计划或 `COACH.md` 的模式字段
+- 如果 `COACH.md` 发生变化，同步平台原生文件（`CLAUDE.md` / `AGENTS.md` / `.cursorrules`）
+- 详细流程见 skill 的 `core/update.md`；如果无法访问 skill 目录，按上面的原则手动处理
+
 ---
 
 ## 11. 红线
